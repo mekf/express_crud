@@ -2,6 +2,7 @@ config = require('../config')()
 express = require 'express'
 http = require 'http'
 path = require 'path'
+MongoClient = require('mongodb').MongoClient
 routes = require path.join(__dirname, '../', 'config', 'routes')
 user = require path.join(__dirname, '../', 'config', 'user')
 
@@ -31,5 +32,12 @@ app.configure 'development', ->
 app.get '/', routes.index
 app.get '/users', user.list
 
-http.createServer(app).listen config.port, ->
-  console.log "Express server listening on port #{config.port}"
+MongoClient.connect "mongodb://#{config.mongo.host}:#{config.mongo.port}/fastdelivery", (err, db) ->
+	if err
+		console.log 'Sorry, there is no mongo db server running.'
+	else
+		attachDB = (req, res, next) ->
+			req.db = db
+			next()
+		http.createServer(app).listen config.port, ->
+			console.log "Express server listening on port #{config.port}"
