@@ -1,9 +1,9 @@
 config = require('../config')()
 express = require 'express'
-routes = require './routes'
-user = require './routes/user'
 http = require 'http'
 path = require 'path'
+routes = require path.join(__dirname, '../', 'config', 'routes')
+user = require path.join(__dirname, '../', 'config', 'user')
 
 app = express()
 
