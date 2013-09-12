@@ -2,6 +2,7 @@ doctype 5
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    != css('app_styles')
+    != js('app_scripts')
   body
     block content
