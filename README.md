@@ -1,0 +1,1 @@
+Try writing a CRUD app with Express and Node. Improvising on this tutorial: http://net.tutsplus.com/tutorials/javascript-ajax/build-a-complete-mvc-web-site-with-expressjs/
