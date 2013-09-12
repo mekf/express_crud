@@ -1,6 +1,4 @@
-###
-Module dependencies.
-###
+config = require('../config')()
 express = require 'express'
 routes = require './routes'
 user = require './routes/user'
@@ -33,5 +31,5 @@ app.configure 'development', ->
 app.get '/', routes.index
 app.get '/users', user.list
 
-http.createServer(app).listen app.get('port'), ->
-  console.log "Express server listening on port #{app.get('port')}"
+http.createServer(app).listen config.port, ->
+  console.log "Express server listening on port #{config.port}"
