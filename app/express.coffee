@@ -40,4 +40,4 @@ MongoClient.connect "mongodb://#{config.mongo.host}:#{config.mongo.port}/fastdel
 			req.db = db
 			next()
 		http.createServer(app).listen config.port, ->
-			console.log "Express server listening on port #{config.port}"
+			console.log "Successfully connected to mongodb://#{config.mongo.host}:#{config.mongo.port} \nExpress server listening on port #{config.port}"
