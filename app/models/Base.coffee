@@ -21,7 +21,7 @@ module.exports:: =
 
   collection: ->
     return @_collection  if @_collection
-    @_collection = @db.collection("fastdelivery-content")
+    @_collection = @db.collection('fastdelivery-content')
 
 ###
 Original JS script: Note that 'this.db = db' does not have return in front of it
@@ -50,6 +50,9 @@ module.exports.prototype = {
 
 Explaination:
 http://stackoverflow.com/questions/7391493/is-there-any-way-to-not-return-something-using-coffeescript
+NOTE: be careful that you're not accidentally returning the results of the comprehension in these cases
+by adding a meaningful return value — like true — or null, to the bottom of your function.
 
-Be careful that you're not accidentally returning the results of the comprehension in these cases, by adding a meaningful return value — like true — or null, to the bottom of your function.
+Another good one:
+http://programmaticallyspeaking.com/why-i-hate-implicit-return-in-coffeescript.html
 ###

@@ -11,7 +11,7 @@ app = express()
 # all environments
 app.configure ->
 	app.set 'port', process.env.PORT or 3000
-	app.set 'views', path.join(__dirname, '../', '/views')
+	app.set 'views', path.join(__dirname, '../', '/templates')
 	app.set 'view engine', 'jade'
 	app.use express.favicon()
 	app.use express.logger('dev')
